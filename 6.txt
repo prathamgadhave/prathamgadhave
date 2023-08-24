@@ -1,0 +1,23 @@
+CREATE TABLE emp(
+empno number(2) constraint pk primary key ,
+empname varchar2(20),
+deptno number(2),
+empsal number(20));
+
+INSERT INTO emp values(1,'abc',5,20000);
+INSERT INTO emp values(2,'def',6,30000);
+INSERT INTO emp values(3,'xyz',7,40000);
+
+
+CREATE TABLE dept(
+deptno number(2) constraint pk2 primary key ,
+dname varchar2(5),
+loc varchar2(5));
+
+INSERT INTO dept values(5,'IT','hyd');
+INSERT INTO dept values(6,'sales','bglr');
+INSERT INTO dept values(7,'mgr','mumb');
+
+ALTER TABLE emp add constraint fk foreign key(deptno) references dept(deptno);
+
+ALTER TABLE emp drop constraint fk;
